@@ -2,6 +2,10 @@
 
 ## Table of Contents
 The project folder has 2 subfolders: the styling folder named "css", the js folder named "js",and the HTML file named "index" 
+### index.html
+The HTML file consists of:
+- An empty unordered list which will be populated dinamically by js file.
+- Seven sections, each one linked by his own link in the list.
 
 * [Instructions](#instructions)
 
