@@ -19,6 +19,9 @@ The js file consists of:
 - A function called buildTheNavigation for creating the links dinamically and populating the unordered list with list items.
 - Events for dealing with actions by the mouse button or scrolling down. 
 
+
+
+
 * [Instructions](#instructions)
 
 ## Instructions
