@@ -8,6 +8,17 @@ The HTML file consists of:
 - Seven sections, each one linked by his own link in the list.
 - A footer has the udacity name and the copyright mark.
 
+### css file
+The css file consists of:
+- Styling the body.
+- Styling the unordered list.
+- Styling the active section.
+
+### js file:
+The js file consists of:
+- A function called buildTheNavigation for creating the links dinamically and populating the unordered list with list items.
+- Events for dealing with actions by the mouse button or scrolling down. 
+
 * [Instructions](#instructions)
 
 ## Instructions
