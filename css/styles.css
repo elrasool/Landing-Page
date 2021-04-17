@@ -221,3 +221,26 @@ section.your-active-class .landing__container::after {
 		           rotate(-360deg);
 	}
 }
+
+/* media quiry for the responsive */
+@media screen and (max-width: 600px) {
+    #navbar__list a:not(:first-child) {display: none;}
+    #navbar__list a.icon {
+      float: right;
+      display: block;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    #navbar__list.responsive {position: relative;}
+    #navbar__list.responsive a.icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    #navbar__list.responsive a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+  }

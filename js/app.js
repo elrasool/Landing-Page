@@ -23,8 +23,7 @@ let anchor = document.createElement('a');
 let listItem = document.createElement('li');
 let documentFragment = document.createDocumentFragment();
 
-// let anchor;
-// let listItem;
+
 /**
  * End Global Variables
  * Start Helper Functions
@@ -46,7 +45,7 @@ function buildTheNavigation() {
         anchor.style.cssText = "margin-right:20px;text-decoration:none;color:white;";
 
     }
-// Appending the unordered list with the Document Fragment object which in its role has been appended with the list items 
+    // Appending the unordered list with the Document Fragment object which in its role has been appended with the list items 
     unOrderedList.appendChild(documentFragment);
 }
 
@@ -65,7 +64,16 @@ buildTheNavigation(sections);
 
 
 // Scroll to anchor ID using scrollTO event
-
+const scrollToSection = function (event) {
+    const selectedSection = anchor.href.cssText;
+    selectedSection.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+    console.log(event);
+    event.preventDefault();
+}
+anchor.addEventListener('click', scrollToSection, false);
 /**
  * End Main Functions
  * Begin Events
@@ -74,28 +82,32 @@ buildTheNavigation(sections);
 
 // Build menu 
 
+
 // Scroll to section on link click
-window.addEventListener('scroll', toggleActiveState, false);
+window.addEventListener('scroll', toggleActiveState);
 
 
 function toggleActiveState() {
-    let observer;
+
     let options = {
-        root: null,
+        root: document,
         rootMargin: '0px',
-        threshold: [0.0, 1.0]
+        threshold: [1.0]
     };
-
-    observer = new IntersectionObserver(handleIntersect, options);
-    let target = document.querySelector('section');
-    observer.observe(target);
-
-}
-let handleIntersect = (entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.intersectionRatio <= 50) {
-            
-        }
-    });
-};
 // Set sections as active
+    let handleIntersect = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('your-active-class');
+            } else {
+                entry.target.classList.remove('your-active-class');
+            }
+
+        });
+    };
+    const observer = new IntersectionObserver(handleIntersect, options);
+    Array.prototype.forEach.call(sections, (el) => {
+        observer.observe(el);
+    });
+}
+
