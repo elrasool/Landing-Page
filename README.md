@@ -32,3 +32,9 @@ To get started, open `js/app.js` and start building out the app's functionality
 
 For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
 
+### acknowledgment
+Thanks for:
+-- The FWD initiative.
+-- Udacity platform.
+-- The web tutors.
+-- The freelance Gurus.
