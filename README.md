@@ -34,7 +34,7 @@ For specific, detailed instructions, look at the project instructions in the Uda
 
 ### acknowledgment
 Thanks for:
--- The FWD initiative.
--- Udacity platform.
--- The web tutors.
--- The freelance Gurus.
+- The FWD initiative.
+- Udacity platform.
+- The web tutors.
+- The freelance Gurus.
