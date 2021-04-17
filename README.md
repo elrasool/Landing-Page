@@ -6,6 +6,7 @@ The project folder has 2 subfolders: the styling folder named "css", the js fold
 The HTML file consists of:
 - An empty unordered list which will be populated dinamically by js file.
 - Seven sections, each one linked by his own link in the list.
+- A footer has the udacity name and the copyright mark.
 
 * [Instructions](#instructions)
 
