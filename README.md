@@ -16,7 +16,8 @@ The css file consists of:
 
 ### js file:
 The js file consists of:
-- A function called buildTheNavigation for creating the links dinamically and populating the unordered list with list items.
+- Global variables 
+- A loop for creating the links dinamically and populating the unordered list with list items , Another way for using the is using the sections' forEach .
 - Events for dealing with actions by the mouse button or scrolling down. 
 
 
