@@ -18,75 +18,66 @@
  * 
  */
 const sections = document.querySelectorAll('section');
-const unOrderedList = document.querySelector('#navbar__list');
-let anchor = document.createElement('a');
-let listItem = document.createElement('li');
-let documentFragment = document.createDocumentFragment();
-
-
+const unOrderedList = document.getElementById('navbar__list');
+const fragment = document.createDocumentFragment();
 /**
- * End Global Variables
- * Start Helper Functions
- * 
- */
-// The following function is used for creating the links and the list items which will be populated in the unordered list
-function buildTheNavigation() {
-    for (const section of sections) {
-        // sellecting the anchor links 
-        anchor = document.createElement('a');
-        // adding the text which will be represented in the browser based on the data attribute in each section
-        anchor.innerText = section.dataset.nav
-        // creating the list items 
-        listItem = document.createElement('li');
-        anchor.setAttribute('href', `#${section.id}`);
-        // populating the list items with the mentioned links above 
-        listItem.appendChild(anchor);
-        documentFragment.appendChild(listItem);
-        anchor.style.cssText = "margin-right:20px;text-decoration:none;color:white;";
+ * End Global Variables*/
 
-    }
-    // Appending the unordered list with the Document Fragment object which in its role has been appended with the list items 
-    unOrderedList.appendChild(documentFragment);
-}
+/* Within the following loop we will create the list items and the links dynamically and populate each list item with the corresponding link.
+and assigning the list items to the fragment variable which is a healthy way for increasing the performance*/
 
-unOrderedList.style.cssText = "background-color:black;padding:20px;overflow:hidden"
-listItem.style.cssText = "margin-right:30px;float:left";
-/**
- * End Helper Functions
- * Begin Main Functions
- * 
- */
+for (const section of sections) {
+    // creating the link
+    const link = document.createElement('a');
+    // getting each link's name dynamically
+    let textContented = section.dataset.nav;
 
-// build the nav
-buildTheNavigation(sections);
-
-// Add class 'active' to section when near top of viewport
-
-
-// Scroll to anchor ID using scrollTO event
-const scrollToSection = function (event) {
-    const selectedSection = anchor.href.cssText;
-    selectedSection.scrollIntoView({
-        behavior: "smooth",
-        block: "center"
+    let textNode = document.createTextNode(textContented);
+    // creating the list item
+    const listItem = document.createElement('li');
+    // setting the link's name with the textNode variable
+    link.appendChild(textNode);
+    // styling the link 
+    link.style.cssText = "margin-right:20px;color:white;text-decoration:none;"
+    // styling the unordered list
+    unOrderedList.style.cssText = "background-color:black;padding:20px;overflow:hidden";
+    // populating 
+    listItem.appendChild(link);
+    link.addEventListener('click', () => {
+        section.scrollIntoView({
+            behavior: 'smooth'
+        });
     });
-    console.log(event);
-    event.preventDefault();
-}
-anchor.addEventListener('click', scrollToSection, false);
-/**
- * End Main Functions
- * Begin Events
+    fragment.appendChild(listItem);
+} 
+// ---------We can use another way for looping by using forEach method like the below.----------
+
+// sections.forEach((section) => {
+//     const link = document.createElement('a');
+//     let textContented = section.dataset.nav;
+//     let textNode = document.createTextNode(textContented);
+//     const listItem = document.createElement('li');
+//     link.appendChild(textNode);
+//     link.style.cssText = "margin-right:20px;color:white;text-decoration:none;"
+//     unOrderedList.style.cssText = "background-color:black;padding:20px;overflow:hidden";
+//     listItem.appendChild(link);
+//     link.addEventListener('click', () => {
+//         section.scrollIntoView({
+//             behavior: 'smooth'
+//         });
+//     });
+//     fragment.appendChild(listItem);
+// })
+
+unOrderedList.appendChild(fragment);
+
+ /* Start Helper Functions
  * 
  */
 
-// Build menu 
-
-
-// Scroll to section on link click
 window.addEventListener('scroll', toggleActiveState);
 
-
+// Adding the listener function 
 function toggleActiveState() {
 
     let options = {
@@ -94,7 +85,7 @@ function toggleActiveState() {
         rootMargin: '0px',
         threshold: [1.0]
     };
-// Set sections as active
+    // Set sections as active
     let handleIntersect = (entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -105,9 +96,36 @@ function toggleActiveState() {
 
         });
     };
+
     const observer = new IntersectionObserver(handleIntersect, options);
     Array.prototype.forEach.call(sections, (el) => {
         observer.observe(el);
     });
 }
 
+/**
+ * End Helper Functions
+ * Begin Main Functions
+ * 
+ */
+
+// build the nav
+
+
+// Add class 'active' to section when near top of viewport
+
+
+// Scroll to anchor ID using scrollTO event
+
+
+/**
+ * End Main Functions
+ * Begin Events
+ * 
+ */
+
+// Build menu 
+
+// Scroll to section on link click
+
+// Set sections as active
