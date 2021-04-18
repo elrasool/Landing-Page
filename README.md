@@ -39,3 +39,9 @@ Thanks for:
 - Udacity platform.
 - The web tutors.
 - The freelance Gurus.
+
+#### Helper links
+The mentioned links below had helped me a lot through my learning journey and helped me to refactor my code.
+- [The udacity tutorials.](https://classroom.udacity.com/nanodegrees/nd001-mena-nfp2/parts/a52065a5-e4bd-435f-94cf-21a3e4f38767) 
+- [The MDN Documents](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [W3Schools website](https://www.w3schools.com/js/DEFAULT.asp)
