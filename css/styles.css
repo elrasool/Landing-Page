@@ -75,6 +75,15 @@ section {
     display: inline-block;
 }
 
+ @media (max-width:500px) { 
+    .navbar__menu li{
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+ }  
+
 .navbar__menu .menu__link {
     display: block;
     padding: 1em;
