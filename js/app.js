@@ -50,24 +50,7 @@ for (const section of sections) {
     });
     fragment.appendChild(listItem);
 } 
-// ---------We can use another way for looping by using forEach method like the below.----------
 
-// sections.forEach((section) => {
-//     const link = document.createElement('a');
-//     let textContented = section.dataset.nav;
-//     let textNode = document.createTextNode(textContented);
-//     const listItem = document.createElement('li');
-//     link.appendChild(textNode);
-//     link.style.cssText = "margin-right:20px;color:white;text-decoration:none;"
-//     unOrderedList.style.cssText = "background-color:black;padding:20px;overflow:hidden";
-//     listItem.appendChild(link);
-//     link.addEventListener('click', () => {
-//         section.scrollIntoView({
-//             behavior: 'smooth'
-//         });
-//     });
-//     fragment.appendChild(listItem);
-// })
 
 unOrderedList.appendChild(fragment);
 
